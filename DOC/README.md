@@ -2,65 +2,21 @@
 
 ![logo](https://avatars2.githubusercontent.com/u/38611917?s=200&v=4)
 
-## 登陆api:<br>
+## BB几句
+本说明是SDnote的api说明，请开发者参照说明食用。
 
-### url：http://sunote.leepush.com/Sdnote/api/Login/Login
+## 测试api：
+### URL:http://dstantside.com/Sdnote/api/test
+### 请求方式:get
 
-### 请求方式：post
+该api用于测试开发者是否能正常连接api服务器，同样也是测试api服务器是否是开启状态。
 
-body：
-
-	{
-		"userName":"xxx",
-		"password":"xxx"
-	}
-
-需求参数说明：
-
-* userName:用户名
-* password:密码
-
-response:<br>
-校验正确的返回参数形式：
-
-	{
-	    "password": "",
-	    "state": "200",
-	    "token": "d9804f1d047e419fb347bcb716838685",
-	    "userID": "1",
-	    "userName": "qq494296145"
-	}
-校验错误的返回参数形式:
-
-	{
-	    "password": "密码错误",
-	    "state": "401",
-	    "token": "",
-	    "userID": "",
-	    "userName": "true"
-	}	
+返回值是：▇▇▇▇▇▇▇▇▇▇▇▇▇▇
 <br>
-
-	{
-	    "password": "",
-	    "state": "400",
-	    "token": "",
-	    "userID": "",
-	    "userName": "无此用户"
-	}
-
-* password：密码信息
-* state状态码
-	* 400：无此用户
-	* 401：密码错误
-	* 200：正常
-* token：返回该用户的token
-* userID：返回该用户的用户id
-* userName：返回该用户的用户名
-
+<br>
+<br>
 ## 注册api：
-### url：http://sunote.leepush.com/Sdnote/api/Login/register
-
+### URL：http://dstantside.com/Sdnote/api/Login/register
 ### 请求方式：post
 
 body：
@@ -127,10 +83,67 @@ body：
 state：状态码
 	* 200：注册成功
 	* 400：注册失败
+<br>
+<br>
+<br>
+## 系统登陆api:<br>
+### URL：http://dstantside.com/Sdnote/api/Login/Login
+### 请求方式：post
+
+body：
+
+	{
+		"userName":"xxx",
+		"password":"xxx"
+	}
+
+需求参数说明：
+
+* userName:用户名
+* password:密码
 
 
+校验正确的返回参数形式：
+
+	{
+	    "password": "",
+	    "state": "200",
+	    "token": "d9804f1d047e419fb347bcb716838685",
+	    "userID": "1",
+	    "userName": "qq494296145"
+	}
+校验错误的返回参数形式:
+
+	{
+	    "password": "密码错误",
+	    "state": "401",
+	    "token": "",
+	    "userID": "",
+	    "userName": "true"
+	}	
+<br>
+
+	{
+	    "password": "",
+	    "state": "400",
+	    "token": "",
+	    "userID": "",
+	    "userName": "无此用户"
+	}
+
+* password：密码信息
+* state状态码
+	* 400：无此用户
+	* 401：密码错误
+	* 200：正常
+* token：返回该用户的token
+* userID：返回该用户的用户id
+* userName：返回该用户的用户名
+<br>
+<br>
+<br>
 ## 增加标签api
-### url：http://sunote.leepush.com/Sdnote/api/Note/add
+### URL：http://dstantside.com/Sdnote/api/Note/add
 ### 请求方式：post
 
 body：
@@ -182,12 +195,11 @@ body：
 	* 200：成功
 	* 400：ID或者Token错误
 	* 401：数据库错误
-	
-
-
-
+<br>
+<br>
+<br>
 ## 更新标签api
-### url：http://sunote.leepush.com/Sdnote/api/Note/update
+### URL：http://dstantside.com/Sdnote/api/Note/update
 ### 请求方式：put
 
 body：
@@ -237,10 +249,11 @@ body：
 	* 200：更新正确
 	* 400：Token错误
 	* 401：服务器错误
-
-
+<br>
+<br>
+<br>
 ## 删除标签api
-### url：http://sunote.leepush.com/Sdnote/api/Note/update
+### URL：http://dstantside.com/Sdnote/api/Note/update
 ### 请求方式：DELETE
 
 body：
@@ -284,9 +297,11 @@ body：
 	* 200：删除成功
 	* 401：数据库错误
 	* 400：UserID以及Token不匹配
-
+<br>
+<br>
+<br>
 ## 获取全部标签api
-### url：http://sunote.leepush.com/Sdnote/api/Note/update
+### URL：http://dstantside.com/Sdnote/api/Note/update
 ### 请求方式：post
 
 body：
@@ -363,11 +378,11 @@ body：
 	* noteTime:标签时间
 	* noteID：标签ID
 	* content：标签内容
-
-
+<br>
+<br>
+<br>
 ## 增加提醒API
-
-### url:http://sunote.leepush.com/Sdnote/api/remid/add
+### URL:http://dstantside.com/Sdnote/api/remid/add
 ### 请求方式：post
 
 body：
@@ -425,13 +440,11 @@ body：
 	* 200：增加成功
 	* 401：数据库错误
 	* 400：UserID以及Token不匹配
-
-
-
+<br>
+<br>
+<br>
 ## 更新提醒api
-
-### url：http://sunote.leepush.com/Sdnote/api/remid/update
-
+### URL：http://dstantside.com/Sdnote/api/remid/update
 ### 请求方式：put
 
 body：
@@ -494,14 +507,11 @@ body：
 	* 200：更新成功
 	* 401：数据库出现错误
 	* 400：Token或remindID不匹配
-
-
-
-
+<br>
+<br>
+<br>
 ## 删除提醒api
-
-### url：http://sunote.leepush.com/Sdnote/api/remid/update
-
+### URL：http://dstantside.com/Sdnote/api/remid/update
 ### 请求方式：put
 
 请求参数形式：
@@ -553,15 +563,11 @@ body：
 	* 200：更新成功
 	* 401：数据库出现错误
 	* 400：Token或remindID或者UserID出现错误
-
-
-
-
-
+<br>
+<br>
+<br>
 ## 获取所有提醒api
-
-### url：http://sunote.leepush.com/Sdnote/api/remid/getAll
-
+### URL：http://dstantside.com/Sdnote/api/remid/getAll
 ### 请求方式：post
 
 body：
@@ -626,14 +632,17 @@ body：
 	* tag：tag类别
 	* time：记录时间
 	* title：标题
-
-
-
-## 获取所有提醒api
-
-### url：http://sunote.leepush.com/Sdnote/api/Sdnote/orcapi
-
+<br>
+<br>
+<br>
+## 图片识别api
+### URL：http://dstantside.com/Sdnote/api/Sdnote/orcapi
 ### 请求方式：post
+
+
+图片样式：<br>
+![](https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1524630158300&di=442a5c93bf2ff2898daf4e8c8b28178c&imgtype=0&src=http%3A%2F%2Fimg.my.csdn.net%2Fuploads%2F201303%2F05%2F1362488305_1943.jpg)
+
 
 
 body：
