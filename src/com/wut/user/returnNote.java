@@ -1,45 +1,24 @@
 package com.wut.user;
 
-import java.util.Date;
-
-public class Note {
-	
-	private String UserID;//用户名
-	private String Check;//用户校验码
+public class returnNote {
+	//返回给用户的 标签list
+	private String noteID;//用户名
 	private String Title;//用户标题
 	private String NoteTime;//笔记(标签)时间
 	private String Content;//标签内容
 	private String Tags;//标签类别
-	
-	public Note(String UserName , String Check ,String Title , String NoteTime , String Content , String Tags) {
-		this.UserID = UserName;
-		this.Check = Check;
+	public returnNote(String noteID,String Title,String NoteTime,String Content,String Tags){
+		this.noteID = noteID;
 		this.Title = Title;
 		this.NoteTime = NoteTime;
 		this.Content = Content;
 		this.Tags = Tags;
 	}
-	
-	
-	
-	public String getUserID() {
-		return UserID;
+	public String getNoteID() {
+		return noteID;
 	}
-
-
-
-	public void setUserID(String userID) {
-		UserID = userID;
-	}
-
-
-
-	
-	public String getCheck() {
-		return Check;
-	}
-	public void setCheck(String check) {
-		Check = check;
+	public void setNoteID(String noteID) {
+		this.noteID = noteID;
 	}
 	public String getTitle() {
 		return Title;
@@ -65,8 +44,5 @@ public class Note {
 	public void setTags(String tags) {
 		Tags = tags;
 	}
-	
-	
-	
 	
 }

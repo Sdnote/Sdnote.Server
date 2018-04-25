@@ -1,5 +1,5 @@
 package com.wut.datebase;
 
-public class NoteDate {
-
+public class NoteDate extends Data {
+	
 }
