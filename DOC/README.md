@@ -11,7 +11,7 @@
 
 该api用于测试开发者是否能正常连接api服务器，同样也是测试api服务器是否是开启状态。
 
-返回值是：▇▇▇▇▇▇▇▇▇▇▇▇▇▇
+返回值是：Hello World
 <br>
 <br>
 <br>
@@ -72,21 +72,19 @@ body：
 * true：参数正确
 * false：参数重复
 * email：邮箱
-	* false：邮箱已被注册
-	* true：邮箱通过
+  * false：邮箱已被注册
+  * true：邮箱通过
 * phone：手机号
-	* false：手机已被注册
-	* true：手机通过
+  * false：手机已被注册
+  * true：手机通过
 * userName：用户名
-	* false：用户已被注册
-	* true：用户名通过  
-state：状态码
-	* 200：注册成功
-	* 400：注册失败
-<br>
-<br>
-<br>
-## 系统登陆api:<br>
+  * false：用户已被注册
+  * true：用户名通过  
+    state：状态码
+  * 200：注册成功
+  * 400：注册失败
+    ​
+## 系统登陆api:
 ### URL：http://dstantside.com/Sdnote/api/Login/Login
 ### 请求方式：post
 
@@ -133,15 +131,13 @@ body：
 
 * password：密码信息
 * state状态码
-	* 400：无此用户
-	* 401：密码错误
-	* 200：正常
+  * 400：无此用户
+  * 401：密码错误
+  * 200：正常
 * token：返回该用户的token
 * userID：返回该用户的用户id
 * userName：返回该用户的用户名
-<br>
-<br>
-<br>
+  ​
 ## 增加标签api
 ### URL：http://dstantside.com/Sdnote/api/Note/add
 ### 请求方式：post
@@ -192,12 +188,10 @@ body：
 
 * information：错误正确信息说明
 * state：状态码
-	* 200：成功
-	* 400：ID或者Token错误
-	* 401：数据库错误
-<br>
-<br>
-<br>
+  * 200：成功
+  * 400：ID或者Token错误
+  * 401：数据库错误
+    ​
 ## 更新标签api
 ### URL：http://dstantside.com/Sdnote/api/Note/update
 ### 请求方式：post
@@ -246,12 +240,10 @@ body：
 
 * information:错误信息
 * state：状态码
-	* 200：更新正确
-	* 400：Token错误
-	* 401：服务器错误
-<br>
-<br>
-<br>
+  * 200：更新正确
+  * 400：Token错误
+  * 401：服务器错误
+    ​
 ## 删除标签api
 ### URL：http://dstantside.com/Sdnote/api/Note/update
 ### 请求方式：post
@@ -294,12 +286,10 @@ body：
 
 * information:错误或正确信息
 * state：状态吗
-	* 200：删除成功
-	* 401：数据库错误
-	* 400：UserID以及Token不匹配
-<br>
-<br>
-<br>
+  * 200：删除成功
+  * 401：数据库错误
+  * 400：UserID以及Token不匹配
+    ​
 ## 获取全部标签api
 ### URL：http://dstantside.com/Sdnote/api/Note/update
 ### 请求方式：post
@@ -367,20 +357,17 @@ body：
 	    "information": "error"
 	}
 
-
 * information:错误或正确信息
 * State:状态码
-	* 200：返回成功
-	* 401：用户ID或Token错误
+  * 200：返回成功
+  * 401：用户ID或Token错误
 * data:返回的标签列表信息
-	* title:标签标题
-	* tags:标签类型
-	* noteTime:标签时间
-	* noteID：标签ID
-	* content：标签内容
-<br>
-<br>
-<br>
+  * title:标签标题
+  * tags:标签类型
+  * noteTime:标签时间
+  * noteID：标签ID
+  * content：标签内容
+    ​
 ## 增加提醒API
 ### URL:http://dstantside.com/Sdnote/api/remid/add
 ### 请求方式：post
@@ -398,7 +385,6 @@ body：
 		"Content":"test",
 		"Tag":"test"
 	}
-
 
 需求参数说明：
 
@@ -434,15 +420,12 @@ body：
 	    "state": "401"
 	}
 
-
 * information:错误或正确信息
 * state：状态吗
-	* 200：增加成功
-	* 401：数据库错误
-	* 400：UserID以及Token不匹配
-<br>
-<br>
-<br>
+  * 200：增加成功
+  * 401：数据库错误
+  * 400：UserID以及Token不匹配
+    ​
 ## 更新提醒api
 ### URL：http://dstantside.com/Sdnote/api/remid/update
 ### 请求方式：post
@@ -481,7 +464,6 @@ body：
 	    "state": "200"
 	}
 
-
 更新失败参数返回形式：
 		
 	{
@@ -501,15 +483,12 @@ body：
 	    "state": "401"
 	}
 
-
 * information:错误或正确信息
 * state：状态吗
-	* 200：更新成功
-	* 401：数据库出现错误
-	* 400：Token或remindID不匹配
-<br>
-<br>
-<br>
+  * 200：更新成功
+  * 401：数据库出现错误
+  * 400：Token或remindID不匹配
+    ​
 ## 删除提醒api
 ### URL：http://dstantside.com/Sdnote/api/remid/update
 ### 请求方式：post
@@ -521,7 +500,6 @@ body：
 		"remindID":"1",
 		"UserID":"1"
 	}
-
 
 需求参数说明：
 
@@ -557,15 +535,12 @@ body：
 	}
 
 
-
 * information:错误或正确信息
 * state：状态吗
-	* 200：更新成功
-	* 401：数据库出现错误
-	* 400：Token或remindID或者UserID出现错误
-<br>
-<br>
-<br>
+  * 200：更新成功
+  * 401：数据库出现错误
+  * 400：Token或remindID或者UserID出现错误
+    ​
 ## 获取所有提醒api
 ### URL：http://dstantside.com/Sdnote/api/remid/getAll
 ### 请求方式：post
@@ -613,28 +588,25 @@ body：
 <br>
 	
     {
-	    "State": "400",
-	    "information": "error"
-	}
-
+        "State": "400",
+        "information": "error"
+    }
 
 * information:错误或正确信息
 * state：状态吗
-	* 200：更新成功
-	* 401：数据库出现错误
-	* 400：Token或UserID出现错误
+  * 200：更新成功
+  * 401：数据库出现错误
+  * 400：Token或UserID出现错误
 * data：返回的提醒list
-	* content：日程内容
-	* endTime：结束时间
-	* remindID：提醒事件ID
-	* remindTime：提醒时间
-	* stratTime：开始时间
-	* tag：tag类别
-	* time：记录时间
-	* title：标题
-<br>
-<br>
-<br>
+  * content：日程内容
+  * endTime：结束时间
+  * remindID：提醒事件ID
+  * remindTime：提醒时间
+  * stratTime：开始时间
+  * tag：tag类别
+  * time：记录时间
+  * title：标题
+    ​
 ## 图片识别api
 ### URL：http://dstantside.com/Sdnote/api/Sdnote/orcapi
 ### 请求方式：post
