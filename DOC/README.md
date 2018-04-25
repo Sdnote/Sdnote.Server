@@ -14,6 +14,7 @@ body：
 		"userName":"xxx",
 		"password":"xxx"
 	}
+
 需求参数说明：
 
 * userName:用户名
@@ -58,7 +59,7 @@ response:<br>
 * userName：返回该用户的用户名
 
 ## 注册api：
-### url：http://sunote.leepush.com/Sdnote/api/Login/Login
+### url：http://sunote.leepush.com/Sdnote/api/Login/register
 
 ### 请求方式：post
 
@@ -72,6 +73,7 @@ body：
 		"age":"12",
 		"sex":1
 	}
+
 需求参数说明：
 
 * userName：注册的用户名
