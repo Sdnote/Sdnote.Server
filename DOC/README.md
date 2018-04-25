@@ -200,7 +200,7 @@ body：
 <br>
 ## 更新标签api
 ### URL：http://dstantside.com/Sdnote/api/Note/update
-### 请求方式：put
+### 请求方式：post
 
 body：
 
@@ -254,7 +254,7 @@ body：
 <br>
 ## 删除标签api
 ### URL：http://dstantside.com/Sdnote/api/Note/update
-### 请求方式：DELETE
+### 请求方式：post
 
 body：
 
@@ -445,7 +445,7 @@ body：
 <br>
 ## 更新提醒api
 ### URL：http://dstantside.com/Sdnote/api/remid/update
-### 请求方式：put
+### 请求方式：post
 
 body：
 
@@ -512,7 +512,7 @@ body：
 <br>
 ## 删除提醒api
 ### URL：http://dstantside.com/Sdnote/api/remid/update
-### 请求方式：put
+### 请求方式：post
 
 请求参数形式：
 	
