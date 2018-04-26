@@ -32,7 +32,6 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 public class TencentApi {
-	
 
 	public String api(String url) throws Exception {
 
@@ -46,7 +45,6 @@ public class TencentApi {
 			// 创建POST请求对象
 			HttpPost httpPost = new HttpPost("http://recognition.image.myqcloud.com/ocr/handwriting");
 
-			
 			// 使用URL实体转换工具
 			// 需要传递一个 json
 			JSONObject param = new JSONObject();
@@ -54,8 +52,7 @@ public class TencentApi {
 			param.put("bucket", "");
 			param.put("url", url);
 			StringEntity se = new StringEntity(param.toString());
-			
-			 
+
 			httpPost.setEntity(se);
 
 			/*
@@ -63,8 +60,7 @@ public class TencentApi {
 			 */
 			httpPost.addHeader("host", "recognition.image.myqcloud.com");
 			httpPost.addHeader("Content-Type", "application/json");
-			httpPost.addHeader("authorization",
-					"gekuLE8u+p+J7jHadlYhyJhgCyNhPTEyNTIyMDkzODEmYj1maWxlJms9QUtJRGM4VGNhT"
+			httpPost.addHeader("authorization", "gekuLE8u+p+J7jHadlYhyJhgCyNhPTEyNTIyMDkzODEmYj1maWxlJms9QUtJRGM4VGNhT"
 					+ "nZVbGJMdUlZeVVDaTNDU2drZEtxUDJmME5kJmU9MTUyNjk2NTA1OSZ0PTE1MjQzNzMwNTkmcj0xODE1MDkzOTI2JnU9MCZmPQ==");
 			// 执行请求
 			response = httpClient.execute(httpPost);
@@ -100,18 +96,16 @@ public class TencentApi {
 		JSONObject data = result.getJSONObject("data");
 		JSONArray jsonArray = data.getJSONArray("items");
 		String str = null;
-		for(int i = 0; i<jsonArray.length();i++){
-			JSONObject a =  jsonArray.getJSONObject(i);
-			str+=a.get("itemstring").toString()+"\n";
+		for (int i = 0; i < jsonArray.length(); i++) {
+			JSONObject a = jsonArray.getJSONObject(i);
+			str += a.get("itemstring").toString() + "\n";
 			System.out.println(a.get("itemstring"));
 		}
-		if (str==null) {
+		if (str == null) {
 			return "";
 		}
 		return str.replace("null", "");
-		
-		
-		
+
 	}
 
 }

@@ -19,7 +19,7 @@ public class sign {
      * @return
      * @throws Exception
      */
-    public static String appSign(long appId, String secretId, String secretKey, String bucketName,
+	public static String appSign(long appId, String secretId, String secretKey, String bucketName,
             long expired) throws Exception {
         long now = System.currentTimeMillis() / 1000;
         int rdm = Math.abs(new Random().nextInt());

@@ -1,6 +1,7 @@
 package com.wut.connection;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.ws.rs.Consumes;
@@ -16,6 +17,7 @@ import com.wut.tool.tool;
 import com.wut.user.Note;
 import com.wut.user.Remind;
 import com.wut.user.StateInformation;
+import com.wut.user.returnNote;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -45,37 +47,72 @@ public class RemindApi {
     @Consumes(MediaType.APPLICATION_JSON)
 	public StateInformation add(Object Receive){
 		JSONObject note = JSONObject.fromObject(Receive);
-		String UserID = note.getString("UserID");//用户名
-		String Token = note.getString("Token");//用户校验码
-		String Title = note.getString("Title");//用户标题
-		String Time = note.getString("time");//记录时间
-		String stratTime = note.getString("stratTime");//开始时间
-		String endTime = note.getString("endTime");//提醒时间
-		String remindTime = note.getString("remindTime");//结束提醒时间
-		String Content = note.getString("Content");//标签内容
-		String Tag = note.getString("Tag");//标签类别
+		
+		String UserID = "";
+		String Token = "";
+		String Title = "";
+		String Time = "";
+		String stratTime = ""; 
+		String endTime = "";
+		String remindTime = "";
+		String Content = "";
+		String Tag = "";
+		
+		try {
+			
+		 UserID = note.getString("UserID");//用户名
+		 Token = note.getString("Token");//用户校验码
+		 Title = note.getString("Title");//用户标题
+		 Time = note.getString("time");//记录时间
+		 stratTime = note.getString("stratTime");//开始时间
+		 endTime = note.getString("endTime");//提醒时间
+		 remindTime = note.getString("remindTime");//结束提醒时间
+		 Content = note.getString("Content");//标签内容
+		 Tag = note.getString("Tag");//标签类别
+		} catch (Exception e) {
+			return new StateInformation("500","body error");
+		}
 		Remind remind = new Remind(UserID,Token,Title,Time,stratTime,endTime,remindTime,Content,Tag);
 		StateInformation re = date.addRemind(remind);
 		return re;
 	}
 	
 	// 日程修改
-		@PUT
+		@POST
 		@Path("/update")
 		@Produces(MediaType.APPLICATION_JSON)  
 	    @Consumes(MediaType.APPLICATION_JSON)
 		public StateInformation Update(Object Receive){
 			//这里不需要用户id
 			JSONObject note = JSONObject.fromObject(Receive);
-			String remindID = note.getString("remindID");//日程ID
-			String Token = note.getString("Token");//用户校验码
-			String Title = note.getString("Title");//用户标题
-			String Time = note.getString("time");//记录时间
-			String stratTime = note.getString("stratTime");//开始时间
-			String endTime = note.getString("endTime");//提醒时间
-			String remindTime = note.getString("remindTime");//结束提醒时间
-			String Content = note.getString("Content");//标签内容
-			String Tag = note.getString("Tag");//标签类别
+			
+			String remindID = "";
+			String Token = "";
+			String Title = "";
+			String Time = "";
+			String stratTime = "";
+			String endTime = "";
+			String remindTime = "";
+			String Content = "";
+			String Tag = "";
+			
+			try {
+				
+			
+			 remindID = note.getString("remindID");//日程ID
+			 Token = note.getString("Token");//用户校验码
+			 Title = note.getString("Title");//用户标题
+			 Time = note.getString("time");//记录时间
+			 stratTime = note.getString("stratTime");//开始时间
+			 endTime = note.getString("endTime");//提醒时间
+			 remindTime = note.getString("remindTime");//结束提醒时间
+			 Content = note.getString("Content");//标签内容
+			 Tag = note.getString("Tag");//标签类别
+			 
+			} catch (Exception e) {
+				return new StateInformation("500","body error");
+			}
+			
 			Remind remind = new Remind(remindID,Token,Title,Time,stratTime,endTime,remindTime,Content,Tag);
 			StateInformation re = date.UpdateRemind(remind);
 			return re;
@@ -85,17 +122,30 @@ public class RemindApi {
 		//日程删除
 		
 		// 只需要给用户返回是否已经成功删除的状态即可
-		@DELETE
+		@POST
 		@Path("/delete")
 		@Produces(MediaType.APPLICATION_JSON)  
 	    @Consumes(MediaType.APPLICATION_JSON)
 		public StateInformation Delete(Object ReceiveNote){
 			JSONObject note = JSONObject.fromObject(ReceiveNote);
 			//删除笔记只需要传来ID以及校验码和笔记id即可
-			String noteID = note.getString("remindID");//noteId
-			String Token = note.getString("Token");//用户校验码
-			String UserID = note.getString("UserID");//用户名
+			
+			String noteID = "";
+			String Token = "";
+			String UserID = "";
+			try {
+			
+			 noteID = note.getString("remindID");//noteId
+			 Token = note.getString("Token");//用户校验码
+			 UserID = note.getString("UserID");//用户名
+				
+			} catch (Exception e) {
+				return new StateInformation("500","body error");
+			}
+			
 			JSONObject Incoming = new JSONObject();
+			
+			
 			Incoming.put("remindID", noteID);
 			Incoming.put("Token", Token);
 			Incoming.put("UserID", UserID);
@@ -116,8 +166,22 @@ public class RemindApi {
 	    @Consumes(MediaType.APPLICATION_JSON)
 		public Map<String, Object> getAll(Object ReceiveNote){
 			JSONObject note = JSONObject.fromObject(ReceiveNote);
-			String userID = note.getString("UserID");//noteId
-			String Token = note.getString("Token");//用户校验码
+			
+			String userID = "";
+			String Token = "";
+
+			try {
+				
+			
+			 userID = note.getString("UserID");//noteId
+			 Token = note.getString("Token");//用户校验码
+			
+			} catch (Exception e) {
+				Map<String, Object> a1 = new HashMap<String, Object>();
+				a1.put("State", "500");
+				a1.put("information", "body error");
+				return a1;
+			}
 			Map<String, Object> re = date.getAllRemind(note);
 			return re;
 		}

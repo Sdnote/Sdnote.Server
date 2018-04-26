@@ -1,16 +1,17 @@
 package com.wut.user;
 
 public class returnRemind {
-	private String remindID ;//提醒ID
-	private String Title ;//用户标题
-	private String Time ;//记录时间
-	private String stratTime ;//开始时间
-	private String endTime ;//提醒时间
-	private String remindTime ;//结束提醒时间
-	private String Content;//标签内容
-	private String Tag ;//标签类别
-	
-	public returnRemind(String remindID,String Title,String Time,String stratTime,String endTime,String remindTime,String Content,String Tag){
+	private String remindID;// 提醒ID
+	private String Title;// 用户标题
+	private String Time;// 记录时间
+	private String stratTime;// 开始时间
+	private String endTime;// 提醒时间
+	private String remindTime;// 结束提醒时间
+	private String Content;// 标签内容
+	private String Tag;// 标签类别
+
+	public returnRemind(String remindID, String Title, String Time, String stratTime, String endTime, String remindTime,
+			String Content, String Tag) {
 		this.remindID = remindID;
 		this.Title = Title;
 		this.Time = Time;
@@ -21,8 +22,6 @@ public class returnRemind {
 		this.Tag = Tag;
 
 	}
-
-	
 
 	public String getRemindID() {
 		return remindID;
@@ -87,6 +86,5 @@ public class returnRemind {
 	public void setTag(String tag) {
 		Tag = tag;
 	}
-	
-	
+
 }
