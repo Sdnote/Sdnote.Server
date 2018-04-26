@@ -15,6 +15,43 @@
 <br>
 <br>
 <br>
+
+## body异常
+当发送的参数出现问题，缺失或者不正确返回异常的json。
+
+可能出现的问题情形是：
+
+* 没有api需求的key
+* key的值类型不正确
+
+返回的body参数：
+
+第一种返回：
+
+	{
+	    "information": "body error",
+	    "state": "500"
+	}
+
+参数说明：
+* information：返回error
+* state：500的状态码，说明body错误。
+
+
+第二种返回：
+
+	{
+	    "email": "body error",
+	    "phone": "body error",
+	    "state": "body error",
+	    "userName": "body error"
+	}
+
+参数说明：
+
+* 当接收的body出现错误，那么发送的json的所有key的值都会显示body error
+
+
 ## 注册api：
 ### URL：http://dstantside.com/Sdnote/api/Login/register
 ### 请求方式：post
