@@ -101,6 +101,7 @@ public class Data {
 		try {
 			if (busername && bEmail) {
 				stst.executeUpdate(sql);
+				init();
 			}
 		} catch (SQLException e) {
 			// 未知错误
@@ -115,7 +116,9 @@ public class Data {
 	// 邮箱以及手机号码的初始化
 	// public ArrayList<Integer> phone = new Arraylist<integer>();
 	public void init() throws SQLException {
-
+		
+		userValidate.clear();;
+		
 		userValidate = new ArrayList<Map<String, String>>();
 
 		String sql = "select  SU_userID,SU_userName,SU_password,SU_Token,SU_Email,SU_phone from Sdnote_User";
@@ -536,6 +539,7 @@ public class Data {
 					+ "'";
 			try {
 				int i = stst.executeUpdate(sql);
+				init();
 				if (i == 0) {
 					a.put("state", "401");
 					a.put("information", "error");
@@ -572,6 +576,7 @@ public class Data {
 					+ "'";
 			try {
 				int i = stst.executeUpdate(sql);
+				init();
 				if (i == 0) {
 					a.put("state", "401");
 					a.put("information", "error");
