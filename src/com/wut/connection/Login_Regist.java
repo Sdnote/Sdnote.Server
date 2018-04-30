@@ -74,6 +74,9 @@ public class Login_Regist {
 
 			userName = RequestUser.getString("userName");
 			password = RequestUser.getString("password");
+			if(userName.equals("")||userName==null){
+				return new LoginUser("402", "用户名为空", "", "", "");
+			}
 			
 		} catch (Exception e) {
 			return new LoginUser("body error", "body error", "body error", "body error", "body error");

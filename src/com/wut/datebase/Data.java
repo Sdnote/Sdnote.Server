@@ -167,8 +167,10 @@ public class Data {
 
 		ResultSet resultSetes = stst.executeQuery(sql);
 		while (resultSetes.next()) {
+			if(password.equals("")||password==null){
+				return new LoginUser("403", "密码为空", "", "", "");
+			}
 			if (resultSetes.getString("SU_password").equals(password)) {
-
 				return new LoginUser("200", resultSetes.getString("SU_userName"), "",
 						resultSetes.getString("SU_userID"), resultSetes.getString("SU_Token"));
 			}
@@ -415,7 +417,7 @@ public class Data {
 					+ "'" + stratTime + "',SR_endTime = '" + endTime + "',SR_remindTime = '" + remindTime
 					+ "',SR_content = " + "'" + Content + "',SR_tag='" + Tag + "' WHERE SR_remindID = '" + remindID
 					+ "'";
-			System.out.println(sql);
+			
 			try {
 				// 成功
 				int i = stst.executeUpdate(sql);
@@ -488,7 +490,8 @@ public class Data {
 			}
 		}
 		if (T) {
-			String sql = "select * from Sdnote_Remind where SR_remindID = '" + userid + "'and SR_vd = " + 0 + "";
+			String sql = "select * from Sdnote_Remind where SR_userID = '" + userid + "' and SR_vd = " + 0 + "";
+			
 			ArrayList<returnRemind> a = new ArrayList<returnRemind>();
 
 			try {
@@ -496,7 +499,7 @@ public class Data {
 
 				ResultSet resultSetes = stst.executeQuery(sql);
 				while (resultSetes.next()) {
-
+					
 					a.add(new returnRemind(resultSetes.getString("SR_remindID"), resultSetes.getString("SR_title"),
 							resultSetes.getString("SR_time"), resultSetes.getString("SR_stratTime"),
 							resultSetes.getString("SR_endTime"), resultSetes.getString("SR_remindTime"),
