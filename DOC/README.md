@@ -163,10 +163,18 @@ body：
 
 	{
 	    "password": "",
-	    "state": "400",
+	    "state": "402",
 	    "token": "",
 	    "userID": "",
-	    "userName": "无此用户"
+	    "userName": "用户为空"
+	}
+
+	{
+	    "password": "",
+	    "state": "403",
+	    "token": "",
+	    "userID": "",
+	    "userName": "密码为空"
 	}
 
 * password：密码信息
@@ -174,6 +182,8 @@ body：
   * 400：无此用户
   * 401：密码错误
   * 200：正常
+  * 402：用户为空
+  * 403：密码为空
 * token：返回该用户的token
 * userID：返回该用户的用户id
 * userName：返回该用户的用户名
