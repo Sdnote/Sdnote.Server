@@ -74,9 +74,11 @@ public class Login_Regist {
 
 			userName = RequestUser.getString("userName");
 			password = RequestUser.getString("password");
+			
 		} catch (Exception e) {
 			return new LoginUser("body error", "body error", "body error", "body error", "body error");
 		}
+		
 		LoginUser user = date.validateUser(userName, password);
 		return user;
 	}
@@ -116,7 +118,7 @@ public class Login_Regist {
 
 		} catch (Exception e) {
 			Map<String, String> a1 = new HashMap<String, String>();
-			;
+			
 			a1.put("state", "500");
 			a1.put("information", "body error");
 			return a1;

@@ -117,9 +117,12 @@ body：
 * userName：用户名
   * false：用户已被注册
   * true：用户名通过  
-    state：状态码
+* state：状态码
   * 200：注册成功
   * 400：注册失败
+  * 401：用户名重复
+  * 402：Email重复
+  * 403：手机号重复
     ​
 ## 系统登陆api:
 ### URL：http://dstantside.com/Sdnote/api/Login/Login
@@ -174,6 +177,116 @@ body：
 * token：返回该用户的token
 * userID：返回该用户的用户id
 * userName：返回该用户的用户名
+
+## 密码修改api
+### URL：http://dstantside.com/Sdnote/api/Login/backPw
+### 请求方式：post
+
+body：
+
+	{
+		"choose":1,
+		"userName":"qq494296145",
+		"OldPassword":"494296145",
+		"NewPassword":"123456"
+	}
+
+需求参数说明：
+
+* choose:选择码
+	* 当选择数值是1时，是密码修改设置
+* userName：用户名
+* OldPassword:老密码密码
+* NewPassword：新密码
+
+校验正确的返回参数形式：
+
+	{
+	    "information": "success",
+	    "state": "200"
+	}
+
+校验错误的返回参数形式:
+
+	{
+	    "information": "password error",
+	    "state": "401"
+	}
+<br>
+
+	{
+	    "information": "userName error",
+	    "state": "400"
+	}
+<br>
+
+	{
+	    "information": "error",
+	    "state": "402"
+	}
+
+* information：状态信息说明
+* state：状态码
+	* 200：修改成功
+	* 400：userName错误
+	* 401：原密码错误
+	* 402：数据库错误
+
+
+## 密码找回api
+### URL：http://dstantside.com/Sdnote/api/Login/backPw
+### 请求方式：post
+
+body：
+
+	{
+		"choose":2,
+		"userName":"qq494296145",
+		"phone":"1233",
+		"NewPassword":"123456"
+	}
+
+需求参数说明：
+
+* choose:选择码
+	* 当选择数值是2时，是密码找回设置
+* userName：用户名
+* phone:手机号
+* NewPassword：新密码
+
+校验正确的返回参数形式：
+
+	{
+	    "information": "success",
+	    "state": "200"
+	}
+
+校验错误的返回参数形式:
+
+	{
+	    "information": "phone error",
+	    "state": "401"
+	}
+<br>
+	
+	{
+	    "information": "userName error",
+	    "state": "400"
+	}
+<br>
+
+	{
+	    "information": "error",
+	    "state": "402"
+	}
+
+* information：状态信息说明
+* state：状态码
+	* 200：修改成功
+	* 400：userName错误
+	* 401：手机号错误
+	* 402：数据库错误
+
   ​
 ## 增加标签api
 ### URL：http://dstantside.com/Sdnote/api/Note/add

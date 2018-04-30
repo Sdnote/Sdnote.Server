@@ -89,7 +89,16 @@ public class Data {
 		}
 
 		if (!busername || !bEmail || !bphone) {
-			return new ReturnUser("400", String.valueOf(busername), String.valueOf(bphone), String.valueOf(bEmail));
+			if(!busername){
+				return new ReturnUser("401", String.valueOf(busername), String.valueOf(bphone), String.valueOf(bEmail));
+			}
+			if(!bEmail){
+				return new ReturnUser("402", String.valueOf(busername), String.valueOf(bphone), String.valueOf(bEmail));
+			}
+			if(!bphone){
+				return new ReturnUser("403", String.valueOf(busername), String.valueOf(bphone), String.valueOf(bEmail));
+			}
+			
 		}
 		// 生成UID
 		String uid = UUID.randomUUID().toString().trim().replaceAll("-", "");
@@ -107,7 +116,7 @@ public class Data {
 			// 未知错误
 			System.out.println(e.toString());
 
-			return new ReturnUser("401", "error", "error", "error");
+			return new ReturnUser("400", "error", "error", "error");
 		}
 
 		return new ReturnUser("200", String.valueOf(busername), String.valueOf(bphone), String.valueOf(bEmail));
@@ -117,7 +126,7 @@ public class Data {
 	// public ArrayList<Integer> phone = new Arraylist<integer>();
 	public void init() throws SQLException {
 		
-		userValidate.clear();;
+		userValidate = null;
 		
 		userValidate = new ArrayList<Map<String, String>>();
 
@@ -525,12 +534,27 @@ public class Data {
 		boolean T = false;
 		Map<String, String> a = new HashMap<String, String>();
 		for (int i = 0; i < userValidate.size(); i++) {
+			System.out.println(userName.equals(userValidate.get(i).get("SU_userName"))+"   "+oldpassword.equals(userValidate.get(i).get("SU_password")));
 			if (userName.equals(userValidate.get(i).get("SU_userName"))
 					&& oldpassword.equals(userValidate.get(i).get("SU_password"))) {
 				T = true;
+				break;
 			}
-			System.out.println(userName + "  " + userValidate.get(i).get("SU_userName"));
-			System.out.println(oldpassword + "  " + userValidate.get(i).get("SU_password"));
+			if (userName.equals(userValidate.get(i).get("SU_userName"))
+					&& !oldpassword.equals(userValidate.get(i).get("SU_password"))) {
+				
+				a.put("state", "401");
+				a.put("information", "password error");
+				return a;
+				
+			}
+			
+			if(i == userValidate.size()-1&&!userName.equals(userValidate.get(i).get("SU_userName"))){
+				a.put("state", "400");
+				a.put("information", "userName error");
+				return a;
+			}
+			
 		}
 
 		// 密码验证正确
@@ -541,7 +565,7 @@ public class Data {
 				int i = stst.executeUpdate(sql);
 				init();
 				if (i == 0) {
-					a.put("state", "401");
+					a.put("state", "402");
 					a.put("information", "error");
 					return a;
 				}
@@ -549,7 +573,7 @@ public class Data {
 				a.put("information", "success");
 				return a;
 			} catch (SQLException e) {
-				a.put("state", "401");
+				a.put("state", "402");
 				a.put("information", "error");
 				e.printStackTrace();
 			}
@@ -567,7 +591,24 @@ public class Data {
 		for (int i = 0; i < userValidate.size(); i++) {
 			if (userName.equals(userValidate.get(i).get("SU_userName"))
 					&& phone.equals(userValidate.get(i).get("SU_phone"))) {
+				
+				
 				T = true;
+				break;
+			}
+			if (userName.equals(userValidate.get(i).get("SU_userName"))
+					&& !phone.equals(userValidate.get(i).get("SU_phone"))) {
+				
+				a.put("state", "401");
+				a.put("information", "phone error");
+				return a;
+				
+			}
+			
+			if(i == userValidate.size()-1&&!userName.equals(userValidate.get(i).get("SU_userName"))){
+				a.put("state", "400");
+				a.put("information", "userName error");
+				return a;
 			}
 		}
 
@@ -578,7 +619,7 @@ public class Data {
 				int i = stst.executeUpdate(sql);
 				init();
 				if (i == 0) {
-					a.put("state", "401");
+					a.put("state", "402");
 					a.put("information", "error");
 					return a;
 				}
@@ -586,7 +627,7 @@ public class Data {
 				a.put("information", "success");
 				return a;
 			} catch (SQLException e) {
-				a.put("state", "401");
+				a.put("state", "402");
 				a.put("information", "error");
 				e.printStackTrace();
 			}
