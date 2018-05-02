@@ -451,7 +451,7 @@ body：
   * 400：UserID以及Token不匹配
     ​
 ## 获取全部标签api
-### URL：http://dstantside.com/Sdnote/api/Note/update
+### URL：http://dstantside.com/Sdnote/api/Note/getAll
 ### 请求方式：post
 
 body：

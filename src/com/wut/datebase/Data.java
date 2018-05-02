@@ -1,4 +1,4 @@
-package com.wut.datebase;
+﻿package com.wut.datebase;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -42,7 +42,7 @@ public class Data {
 
 			e.printStackTrace();
 		}
-		String url = "jdbc:mysql://47.100.21.174:3306/studentassistant?user=qq494296145&password=494296145";
+		String url = "jdbc:mysql://47.100.21.174:3306/studentassistant?user=qq494296145&password=494296145&characterEncoding=UTF-8";
 		try {
 			conn = DriverManager.getConnection(url);
 		} catch (SQLException e) {
