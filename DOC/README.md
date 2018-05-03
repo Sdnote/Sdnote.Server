@@ -405,7 +405,7 @@ body：
   * 401：服务器错误
     ​
 ## 删除标签api
-### URL：http://dstantside.com/Sdnote/api/Note/update
+### URL：http://dstantside.com/Sdnote/api/Note/delete
 ### 请求方式：post
 
 body：
@@ -650,7 +650,7 @@ body：
   * 400：Token或remindID不匹配
     ​
 ## 删除提醒api
-### URL：http://dstantside.com/Sdnote/api/remid/update
+### URL：http://dstantside.com/Sdnote/api/remid/delete
 ### 请求方式：post
 
 请求参数形式：
