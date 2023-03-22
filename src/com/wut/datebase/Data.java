@@ -42,7 +42,7 @@ public class Data {
 
 			e.printStackTrace();
 		}
-		String url = "jdbc:mysql://47.100.21.174:3306/studentassistant?user=qq494296145&password=494296145&characterEncoding=UTF-8";
+		String url = "jdbc:mysql://xxxxx:3306/studentassistant?user=xxxxx&password=xxxxx&characterEncoding=UTF-8";
 		try {
 			conn = DriverManager.getConnection(url);
 		} catch (SQLException e) {
